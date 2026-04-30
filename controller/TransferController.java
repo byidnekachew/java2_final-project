@@ -30,59 +30,145 @@ public class TransferController{
                 netPlusStatus = false;
             }
         }
+        loadProgramCourses();
 
         output.additionalWTCCPrompt();
         additionalWTCC = keyboard.next();
+        loadAdditionalWTCC();
 
         output.apExamsPrompt();
         apExams = keyboard.next();
+        loadAPExams();
 
         output.universityPrompt();
         university = keyboard.next();
     }
 
-    private void loadCoreCourses() {
-        switch (programArea)) {
+    private void loadProgramCourses() {
+        switch(programArea) {
             case "1":
-                user.addCourse(new Course("BIO-111", "General Biology I", "Dual Enrollment", 5));
-                user.addCourse(new Course("BTC-181", "Basic Laboratory Techniques", "Dual Enrollment", 5));
-                user.addCourse(new Course("BIO-112", "General Biology II", "Dual Enrollment", 5));
-                user.addCourse(new Course("BTC-275", "Industrial Microbiology", "Dual Enrollment", 5));
-                user.addCourse(new Course("BTC-281", "Bioprocess Techniques", "Dual Enrollment", 5));
-                user.addCourse(new Course("ISC-121", "Environmental Health & Safety", "Dual Enrollment", 5));
-                user.addCourse(new Course("BIO-250", "Genetics", "Dual Enrollment", 5));
-                user.addCourse(new Course("BTC-150", "Bioethics", "Dual Enrollment", 5));
+                user.addCourse(new Course("BIO-111", "General Biology I", "Dual Enrollment", getWTCCGrade("BIO-111")));
+                user.addCourse(new Course("BTC-181", "Basic Laboratory Techniques", "Dual Enrollment", getWTCCGrade("BTC-181")));
+                user.addCourse(new Course("BIO-112", "General Biology II", "Dual Enrollment", getWTCCGrade("BIO-112")));
+                user.addCourse(new Course("BTC-275", "Industrial Microbiology", "Dual Enrollment", getWTCCGrade("BTC-275")));
+                user.addCourse(new Course("BTC-281", "Bioprocess Techniques", "Dual Enrollment", getWTCCGrade("BTC-281")));
+                user.addCourse(new Course("ISC-121", "Environmental Health & Safety", "Dual Enrollment", getWTCCGrade("ISC-121")));
+                user.addCourse(new Course("BIO-250", "Genetics", "Dual Enrollment", getWTCCGrade("BIO-250")));
+                user.addCourse(new Course("BTC-150", "Bioethics", "Dual Enrollment", getWTCCGrade("BTC-150")));
                 break;
 
             case "2":
-                user.addCourse(new Course("CTI-110", "Web Pgm & Db Foundation", "Dual Enrollment", 5));
-                user.addCourse(new Course("NOS-110", "Operating Systems Concepts", "Dual Enrollment", 5));
-                user.addCourse(new Course("WEB-115", "Web Markup and Scripting", "Dual Enrollment", 5));
+                user.addCourse(new Course("CTI-110", "Web Pgm & Db Foundation", "Dual Enrollment", getWTCCGrade("CTI-110")));
+                user.addCourse(new Course("NOS-110", "Operating Systems Concepts", "Dual Enrollment", getWTCCGrade("NOS-110")));
+                user.addCourse(new Course("WEB-115", "Web Markup and Scripting", "Dual Enrollment", getWTCCGrade("WEB-115")));
                 if (netPlusStatus) {
-                    user.addCourse(new Course("CTS-115", "Info Sys Business Concepts", "Dual Enrollment", 5));
+                    user.addCourse(new Course("CTS-115", "Info Sys Business Concepts", "Dual Enrollment", getWTCCGrade("CTS-115")));
                 } else {
-                    user.addCourse(new Course("CTI-120", "Network & Sec Foundation", "Dual Enrollment", 5));
+                    user.addCourse(new Course("CTI-120", "Network & Sec Foundation", "Dual Enrollment", getWTCCGrade("CTI-120")));
                 }
-                user.addCourse(new Course("CSC-151", "JAVA Programming", "Dual Enrollment", 5));
-                user.addCourse(new Course("DBA-120", "Database Programming I", "Dual Enrollment", 5));
-                user.addCourse(new Course("CSC-251", "Advanced JAVA Programming", "Dual Enrollment", 5));
-                user.addCourse(new Course("CSC-256", "Software Quality Assurance", "Dual Enrollment", 5));
+                user.addCourse(new Course("CSC-151", "JAVA Programming", "Dual Enrollment", getWTCCGrade("CSC-151")));
+                user.addCourse(new Course("DBA-120", "Database Programming I", "Dual Enrollment", getWTCCGrade("DBA-120")));
+                user.addCourse(new Course("CSC-251", "Advanced JAVA Programming", "Dual Enrollment", getWTCCGrade("CSC-251")));
+                user.addCourse(new Course("CSC-256", "Software Quality Assurance", "Dual Enrollment", getWTCCGrade("CSC-256")));
                 break;
 
             case "3":
-                user.addCourse(new Course("CTI-110", "Web Pgm & Db Foundation", "Dual Enrollment", 5));
-                user.addCourse(new Course("NOS-110", "Operating Systems Concepts", "Dual Enrollment", 5));
-                user.addCourse(new Course("SEC-110", "Security Concepts", "Dual Enrollment", 5));
+                user.addCourse(new Course("CTI-110", "Web Pgm & Db Foundation", "Dual Enrollment", getWTCCGrade("CTI-110")));
+                user.addCourse(new Course("NOS-110", "Operating Systems Concepts", "Dual Enrollment", getWTCCGrade("NOS-110")));
+                user.addCourse(new Course("SEC-110", "Security Concepts", "Dual Enrollment", getWTCCGrade("SEC-110")));
                 if (netPlusStatus) {
-                    user.addCourse(new Course("NOS-130", "Windows Single User", "Dual Enrollment", 5));
+                    user.addCourse(new Course("NOS-130", "Windows Single User", "Dual Enrollment", getWTCCGrade("NOS-130")));
                 } else {
-                    user.addCourse(new Course("CTI-120", "Network & Sec Foundation", "Dual Enrollment", 5));
+                    user.addCourse(new Course("CTI-120", "Network & Sec Foundation", "Dual Enrollment", getWTCCGrade("CTI-120")));
                 }
-                user.addCourse(new Course("NET-125", "Introduction to Networks", "Dual Enrollment", 5));
-                user.addCourse(new Course("NOS-120", "Linux/UNIX Single User", "Dual Enrollment", 5));
-                user.addCourse(new Course("NET-126", "Routing Basics", "Dual Enrollment", 5));
-                user.addCourse(new Course("SEC-160", "Security Administration", "Dual Enrollment", 5));
+                user.addCourse(new Course("NET-125", "Introduction to Networks", "Dual Enrollment", getWTCCGrade("NET-125")));
+                user.addCourse(new Course("NOS-120", "Linux/UNIX Single User", "Dual Enrollment", getWTCCGrade("NOS-120")));
+                user.addCourse(new Course("NET-126", "Routing Basics", "Dual Enrollment", getWTCCGrade("NET-126")));
+                user.addCourse(new Course("SEC-160", "Security Administration", "Dual Enrollment", getWTCCGrade("SEC-160")));
                 break;
         }
+    }
+
+    private void loadAdditionalWTCC(){
+        for (int i = 0; i < additionalWTCC.length(); i++) {
+            String j = String.valueOf(additionalWTCC.charAt(i));
+            switch(j){
+                case "1":
+                    user.addCourse(new Course("COM-120", "Introduction to Interpersonal Communication", "Dual Enrollment", getWTCCGrade("COM-120")));
+                    break;
+                case "2":
+                    user.addCourse(new Course("CSC-120", "Computing Fundamentals I", "Dual Enrollment", getWTCCGrade("CSC-120")));
+                    break;
+                case "3":
+                    user.addCourse(new Course("ENG-111", "Writing and Inquiry", "Dual Enrollment", getWTCCGrade("ENG-111")));
+                    break;
+                case "4":
+                    user.addCourse(new Course("HUM-110", "Technology and Society", "Dual Enrollment", getWTCCGrade("HUM-110")));
+                    break;
+                case "5":
+                    user.addCourse(new Course("PSY-150", "General Psychology", "Dual Enrollment", getWTCCGrade("PSY-150")));
+                    break;
+            }
+        }
+    }
+
+    private int getWTCCGrade(String courseName){
+        output.wtccGradePrompt(courseName);
+        return keyboard.nextInt();
+    }
+
+    private void loadAPExams(){
+        for (int i = 0; i < apExams.length(); i += 2) {
+            String j = apExams.substring(i, i + 2);
+            switch(j) {
+                case "01":
+                    user.addCourse(new Course("AP-Bio", "AP Biology", "AP", getAPScore("AP Biology")));
+                    break;
+                case "02":
+                    user.addCourse(new Course("AP-Calc AB", "AP Calculus AB", "AP", getAPScore("AP Calculus AB")));
+                    break;
+                case "03":
+                    user.addCourse(new Course("AP-Calc BC", "AP Calculus BC", "AP", getAPScore("AP Calculus BC")));
+                    break;
+                case "04":
+                    user.addCourse(new Course("AP-CSA", "AP Computer Science A", "AP", getAPScore("AP Computer Science A")));
+                    break;
+                case "05":
+                    user.addCourse(new Course("AP-CSP", "AP Computer Science Principles", "AP", getAPScore("AP Computer Science Principles")));
+                    break;
+                case "06":
+                    user.addCourse(new Course("AP-Lang", "AP English Language & Composition", "AP", getAPScore("AP English Language & Composition")));
+                    break;
+                case "07":
+                    user.addCourse(new Course("AP-Lit", "AP English Literature & Composition", "AP", getAPScore("AP English Literature & Composition")));
+                    break;
+                case "08":
+                    user.addCourse(new Course("AP-HUG", "AP Human Geography", "AP", getAPScore("AP Human Geography")));
+                    break;
+                case "09":
+                    user.addCourse(new Course("AP-Phys", "AP Physics 1: Algebra-Based", "AP", getAPScore("AP Physics 1: Algebra-Based")));
+                    break;
+                case "10":
+                    user.addCourse(new Course("AP-Precalc", "AP Precalculus", "AP", getAPScore("AP Precalculus")));
+                    break;
+                case "11":
+                    user.addCourse(new Course("AP-Stats", "AP Statistics", "AP", getAPScore("AP Statistics")));
+                    break;
+                case "12":
+                    user.addCourse(new Course("AP-Gov", "AP United States Government and Politics", "AP", getAPScore("AP United States Government and Politics")));
+                    break;
+                case "13":
+                    user.addCourse(new Course("AP-USH", "AP United States History", "AP", getAPScore("AP United States History")));
+                    break;
+                case "14":
+                    user.addCourse(new Course("AP-WH", "AP World History: Modern", "AP", getAPScore("AP World History: Modern")));
+                    break;
+            }
+        }
+    }
+
+    private int getAPScore(String examName){
+        output.apScorePrompt(examName);
+        return keyboard.nextInt();
     }
 }
