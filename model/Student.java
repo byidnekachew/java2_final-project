@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Student {
     private ArrayList<Course> coursesTaken = new ArrayList<>();
-    private String university;
+    private int university;
 
     public void addCourse(Course course) {
         coursesTaken.add(course);
     }
 
-    public void setUniversity(String university){
+    public void setUniversity(int university){
         this.university = university;
     }
 
-    public String getUniversity(){
+    public int getUniversity(){
         return university;
     }
 

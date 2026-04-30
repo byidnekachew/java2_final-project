@@ -2,7 +2,7 @@ package view;
 
 public class ConsoleView{
     public void welcome(){
-        System.out.println("Line 1");
+        System.out.println(" ");
         System.out.println("Welcome to the WECIB College Transfer Tool!");
         System.out.println("This tool will help you understand what AP Classes and WTCC courses will transfer to the 4-year institution you plan to attend.");
         System.out.println("It may help if you have your College Board AP Exam Scores and WTCC transcript handy.");
@@ -77,6 +77,10 @@ public class ConsoleView{
         System.out.println("8 - UNC Greensboro");
         System.out.println("9 - Virginia Tech");
         System.out.println("Enter the number corresponding with your answer.");
+    }
+
+    public void displayTransferEquivalence(String courseName, String equivalentCourseCode, String equivalentCourseName, int creditHrs){
+        System.out.println(courseName + " -> " + equivalentCourseCode + " " + equivalentCourseName + " (" + creditHrs + " credits)");
     }
 
     public void errMessage(String inputConstraints){
