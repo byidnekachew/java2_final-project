@@ -5,6 +5,7 @@ import java.util.Scanner;
 import data.UniversityData;
 import model.Course;
 import model.Student;
+import model.TransferCourse;
 import view.ConsoleView;
 
 public class TransferController{
@@ -47,11 +48,7 @@ public class TransferController{
         // user.setUniversity((Integer.parseInt(university)-1));
         user.setUniversity(9);
 
-        for(Course c : user.getCoursesTaken()){
-            if(UniversityData.universityEquivalences.get(user.getUniversity()).containsKey(c.getCourseCode())){
-                output.displayTransferEquivalence(c.getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCourseCode(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCreditHrs());
-            }
-        }
+        loadCreditReport();
     }
 
     private void loadProgramCourses() {
@@ -183,8 +180,10 @@ public class TransferController{
     }
 
     private void loadCreditReport() {
-        
-        
-        user.getUniversity();
+        for(Course c : user.getCoursesTaken()){
+            if(UniversityData.universityEquivalences.get(user.getUniversity()).containsKey(c.getCourseCode())){
+                output.displayTransferEquivalence(c.getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCourseCode(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode()).getCreditHrs());
+            }
+        }
     }
 }

@@ -5,80 +5,70 @@ import java.util.HashMap;
 import model.TransferCourse;
 
 public class UniversityData{
-    public static ArrayList<HashMap<String, TransferCourse>> universityEquivalences = new ArrayList<>();
+    public static ArrayList<HashMap<String, ArrayList<TransferCourse>>> universityEquivalences = new ArrayList<>();
 
     static {
-        HashMap<String, TransferCourse> johnsHopkins = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> johnsHopkins = new HashMap<>();
         universityEquivalences.add(johnsHopkins);
 
-        HashMap<String, TransferCourse> ncAT = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> ncAT = new HashMap<>();
+        ncAT.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIOL 101", "Concepts in Biology", 4, 3)); }});
+        ncAT.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIOL 102", "Concepts of Biology II", 4, 3)); }});
+        ncAT.put("BIO-250", new ArrayList<>() {{ add(new TransferCourse("BIOL 1XX", "Genetics in Human Affairs", 3, 3)); add(new TransferCourse("BIOL 466", "Principles of Genetics", 3, 3)); }});
+        ncAT.put("ISC-121", new ArrayList<>() {{ add(new TransferCourse("OSH 201", "Introduction to OSH", 3, 3)); }});
+        ncAT.put("CTI-110", new ArrayList<>() {{ add(new TransferCourse("CST 231", "Web Systems", 3, 3)); }});
+        ncAT.put("CTI-120", new ArrayList<>() {{ add(new TransferCourse("CST 120T", "Network and Sec Foundation", 3, 3)); }});
+        ncAT.put("CTS-115", new ArrayList<>() {{ add(new TransferCourse("MGMT 132", "Intro to Manage Informa System", 3, 3)); }});
+        ncAT.put("NOS-110", new ArrayList<>() {{ add(new TransferCourse("CST 130", "Introduction to Unix Linux", 3, 3)); }});
+        ncAT.put("NOS-130", new ArrayList<>() {{ add(new TransferCourse("CST 101", "Microcomputer Applications", 3, 3)); add(new TransferCourse("BUED 130T", "Windows Single User", 3, 3)); }});
+        ncAT.put("WEB-115", new ArrayList<>() {{ add(new TransferCourse("GCS 115T", "Web Markup and Scripting", 3, 3)); }});
+        ncAT.put("CSC-120", new ArrayList<>() {{ add(new TransferCourse("COMP 120", "Computers and Their Use", 3, 3)); }});
+        ncAT.put("CSC-151", new ArrayList<>() {{ add(new TransferCourse("COMP 163", "Intro Computer Programming", 3, 3)); add(new TransferCourse("CST 240", "Applied Java Programming", 3, 3)); }});
+        ncAT.put("CSC-251", new ArrayList<>() {{ add(new TransferCourse("COMP 167", "Computer Prog Design", 3, 3)); }});
+        ncAT.put("CSC-256", new ArrayList<>() {{ add(new TransferCourse("CST 313", "AP Hardware and Software Sys 1", 3, 3)); }});
+        ncAT.put("DBA-120", new ArrayList<>() {{ add(new TransferCourse("CST 225", "Computer Database Management", 3, 3)); }});
+        ncAT.put("SEC-110", new ArrayList<>() {{ add(new TransferCourse("COMP 590", "Spec Topics in Comp Sci", 3, 3)); }});
+        ncAT.put("SEC-160", new ArrayList<>() {{ add(new TransferCourse("CST 160T", "Security Administration I", 3, 3)); }});
+        ncAT.put("NET-125", new ArrayList<>() {{ add(new TransferCourse("CST 329", "Computer Networking I", 3, 3)); }});
+        ncAT.put("NET-126", new ArrayList<>() {{ add(new TransferCourse("CST 126T", "Routing Basics", 3, 3)); }});
+        ncAT.put("NOS-120", new ArrayList<>() {{ add(new TransferCourse("CST 130", "Introduction to Unix Linux", 3, 3)); }});
+        ncAT.put("COM-120", new ArrayList<>() {{ add(new TransferCourse("SPCH 250", "Speech Fundamentals", 3, 3)); }});
+        ncAT.put("ENG-111", new ArrayList<>() {{ add(new TransferCourse("ENGL 100", "Ideas & Their Expressions I", 3, 3)); }});
+        ncAT.put("HUM-110", new ArrayList<>() {{ add(new TransferCourse("ENGL 200", "Survey of Humanities I", 3, 3)); }});
+        ncAT.put("PSY-150", new ArrayList<>() {{ add(new TransferCourse("PSYC 101", "General Psychology", 3, 3)); }});
+        ncAT.put("AP-Bio", new ArrayList<>() {{ add(new TransferCourse("BIOL 100", "Biological Science", 4, 3)); }});
+        ncAT.put("AP-Calc AB", new ArrayList<>() {{ add(new TransferCourse("MATH 131", "Calculus 1", 4, 3)); }});
+        ncAT.put("AP-Calc BC", new ArrayList<>() {{ add(new TransferCourse("MATH 131", "Calculus 1", 4, 3)); add(new TransferCourse("MATH 132", "Calculus 2", 4, 3)); }});
+        ncAT.put("AP-CSA", new ArrayList<>() {{ add(new TransferCourse("COMP 120", "Computers and Their Use", 3, 3)); add(new TransferCourse("COMP 163", "Introduction to Computer Programming", 3, 3)); }});
+        ncAT.put("AP-Lang", new ArrayList<>() {{ add(new TransferCourse("ENGL 100", "Ideas & Their Expressions 1", 3, 3)); add(new TransferCourse("ENGL 101", "Ideas & Their Expressions 2", 3, 4)); }});
+        ncAT.put("AP-Lit", new ArrayList<>() {{ add(new TransferCourse("ENGL 100", "Ideas & Their Expressions 1", 3, 3)); add(new TransferCourse("ENGL 101", "Ideas & Their Expressions 2", 3, 4)); }});
+        ncAT.put("AP-Phys", new ArrayList<>() {{ add(new TransferCourse("PHYS 225", "College Physics 1", 3, 3)); add(new TransferCourse("PHYS 226", "College Physics 2", 3, 3)); }});
+        ncAT.put("AP-Stats", new ArrayList<>() {{ add(new TransferCourse("MATH 224", "Introduction to Probability and Statistics", 3, 3)); }});
+        ncAT.put("AP-Gov", new ArrayList<>() {{ add(new TransferCourse("POLI 110", "American Government and Politics", 3, 3)); }});
+        ncAT.put("AP-USH", new ArrayList<>() {{ add(new TransferCourse("HIST 104", "U.S. History From 1492-1877", 3, 3)); add(new TransferCourse("HIST 105", "U.S. History Since 1877", 3, 3)); }});
+        ncAT.put("AP-WH", new ArrayList<>() {{ add(new TransferCourse("HIST 206", "The World to 1400", 3, 3)); add(new TransferCourse("HIST 207", "The World Since 1400", 3, 3)); }});
         universityEquivalences.add(ncAT);
 
-        HashMap<String, TransferCourse> ncState = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> ncState = new HashMap<>();
         universityEquivalences.add(ncState);
 
-        HashMap<String, TransferCourse> northeastern = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> northeastern = new HashMap<>();
         universityEquivalences.add(northeastern);
 
-        HashMap<String, TransferCourse> pennState = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> pennState = new HashMap<>();
         universityEquivalences.add(pennState);
 
-        HashMap<String, TransferCourse> uncChapelHill = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> uncChapelHill = new HashMap<>();
         universityEquivalences.add(uncChapelHill);
 
-        HashMap<String, TransferCourse> uncCharlotte = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> uncCharlotte = new HashMap<>();
         universityEquivalences.add(uncCharlotte);
 
-        HashMap<String, TransferCourse> uncGreensboro = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> uncGreensboro = new HashMap<>();
         universityEquivalences.add(uncGreensboro);
 
-        HashMap<String, TransferCourse> virginiaTech = new HashMap<>();
+        HashMap<String, ArrayList<TransferCourse>> virginiaTech = new HashMap<>();
         universityEquivalences.add(virginiaTech);
-
-        // Fake University (placeholder)
-    HashMap<String, TransferCourse> fakeUniversity = new HashMap<>();
-    fakeUniversity.put("BIO-111", new TransferCourse("BIO-101", "Intro to Biology", 4));
-    fakeUniversity.put("BTC-181", new TransferCourse("BTC-101", "Lab Techniques", 3));
-    fakeUniversity.put("BIO-112", new TransferCourse("BIO-102", "Biology II", 4));
-    fakeUniversity.put("BTC-275", new TransferCourse("BTC-201", "Microbiology", 3));
-    fakeUniversity.put("BTC-281", new TransferCourse("BTC-202", "Bioprocess", 3));
-    fakeUniversity.put("ISC-121", new TransferCourse("ISC-101", "Environmental Health", 3));
-    fakeUniversity.put("BIO-250", new TransferCourse("BIO-301", "Genetics", 3));
-    fakeUniversity.put("BTC-150", new TransferCourse("BTC-101", "Bioethics", 3));
-    fakeUniversity.put("CTI-110", new TransferCourse("CTI-101", "Web Foundations", 3));
-    fakeUniversity.put("NOS-110", new TransferCourse("NOS-101", "Operating Systems", 3));
-    fakeUniversity.put("WEB-115", new TransferCourse("WEB-101", "Web Scripting", 3));
-    fakeUniversity.put("CTI-120", new TransferCourse("CTI-102", "Networking", 3));
-    fakeUniversity.put("CTS-115", new TransferCourse("CTS-101", "Business Concepts", 3));
-    fakeUniversity.put("CSC-151", new TransferCourse("CSC-101", "Java Programming", 3));
-    fakeUniversity.put("DBA-120", new TransferCourse("DBA-101", "Database Programming", 3));
-    fakeUniversity.put("CSC-251", new TransferCourse("CSC-201", "Advanced Java", 3));
-    fakeUniversity.put("CSC-256", new TransferCourse("CSC-202", "Software QA", 3));
-    fakeUniversity.put("SEC-110", new TransferCourse("SEC-101", "Security Concepts", 3));
-    fakeUniversity.put("NOS-130", new TransferCourse("NOS-102", "Windows", 3));
-    fakeUniversity.put("NET-125", new TransferCourse("NET-101", "Intro to Networks", 3));
-    fakeUniversity.put("NOS-120", new TransferCourse("NOS-103", "Linux", 3));
-    fakeUniversity.put("NET-126", new TransferCourse("NET-102", "Routing", 3));
-    fakeUniversity.put("SEC-160", new TransferCourse("SEC-102", "Security Admin", 3));
-    fakeUniversity.put("COM-120", new TransferCourse("COM-101", "Interpersonal Comm", 3));
-    fakeUniversity.put("CSC-120", new TransferCourse("CSC-100", "Computing Fundamentals", 3));
-    fakeUniversity.put("ENG-111", new TransferCourse("ENG-101", "Writing and Inquiry", 3));
-    fakeUniversity.put("HUM-110", new TransferCourse("HUM-101", "Technology and Society", 3));
-    fakeUniversity.put("PSY-150", new TransferCourse("PSY-101", "General Psychology", 3));
-    fakeUniversity.put("AP-Bio", new TransferCourse("BIO-110", "AP Biology", 4));
-    fakeUniversity.put("AP-Calc AB", new TransferCourse("MAT-111", "Calculus AB", 4));
-    fakeUniversity.put("AP-Calc BC", new TransferCourse("MAT-112", "Calculus BC", 4));
-    fakeUniversity.put("AP-CSA", new TransferCourse("CSC-110", "AP CS A", 3));
-    fakeUniversity.put("AP-CSP", new TransferCourse("CSC-111", "AP CS Principles", 3));
-    fakeUniversity.put("AP-Lang", new TransferCourse("ENG-110", "AP English Lang", 3));
-    fakeUniversity.put("AP-Lit", new TransferCourse("ENG-111", "AP English Lit", 3));
-    fakeUniversity.put("AP-HUG", new TransferCourse("GEO-101", "Human Geography", 3));
-    fakeUniversity.put("AP-Phys", new TransferCourse("PHY-101", "AP Physics", 4));
-    fakeUniversity.put("AP-Precalc", new TransferCourse("MAT-110", "Precalculus", 3));
-    fakeUniversity.put("AP-Stats", new TransferCourse("MAT-152", "Statistics", 3));
-    fakeUniversity.put("AP-Gov", new TransferCourse("POL-101", "US Government", 3));
-    fakeUniversity.put("AP-USH", new TransferCourse("HIS-111", "US History", 3));
-    fakeUniversity.put("AP-WH", new TransferCourse("HIS-112", "World History", 3));
-    universityEquivalences.add(fakeUniversity);
     }
+
 }
