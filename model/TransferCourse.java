@@ -1,11 +1,18 @@
 package model;
 
+/**
+ * Model class to hold information about a given course at a 4-year institution.
+ *
+ * @author Biruk Yidnekachew
+ * @version 1.0
+*/
 public class TransferCourse{
-    private String courseCode;
+    private String courseCode; // University course code
     private String courseName;
     private int creditHrs;
-    private int scoreRequired;
+    private int scoreRequired; // For credit for the course
 
+    // Constructor
     public TransferCourse(String courseCode, String courseName, int creditHrs, int scoreRequired) {
         this.courseCode = courseCode;
         this.courseName = courseName;
@@ -13,6 +20,7 @@ public class TransferCourse{
         this.scoreRequired = scoreRequired;
     }
 
+    // Getters for each data field
     public String getCourseCode() {
         return courseCode;
     }
@@ -22,7 +30,6 @@ public class TransferCourse{
     public int getCreditHrs() {
         return creditHrs;
     }
-    
     public int getScoreRequired(){
         return scoreRequired;
     }

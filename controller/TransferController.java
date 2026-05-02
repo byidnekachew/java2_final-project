@@ -1,55 +1,58 @@
 package controller;
 
-import java.util.Scanner;
+// Dependencies imported
+import java.util.Scanner; // For user input
 
-import data.UniversityData;
-import model.Course;
-import model.Student;
-import model.TransferCourse;
+import data.UniversityData; // Transfer course data
+import model.Course; 
+import model.Student; 
+import model.TransferCourse; 
 import view.ConsoleView;
 
 public class TransferController{
-    Scanner keyboard = new Scanner(System.in);
-    private Student user = new Student();
-    private ConsoleView output = new ConsoleView();
+    Scanner keyboard = new Scanner(System.in); // Creates scanner object
+    private Student user = new Student(); // Creates student object for user run
+    private ConsoleView output = new ConsoleView(); // Creates view object to output to users
     
-    String programArea;
-    Boolean netPlusStatus; 
-    String additionalWTCC;
-    String apExams;
-    String university;
-
     public void run(){
-        output.welcome();
+        output.welcome(); // Displays welcome message
 
-        output.programAreaPrompt();
-        programArea = keyboard.next();
+        output.programAreaPrompt(); // Prompts for program area
+        String programArea = keyboard.next(); // Collects program area data
+        // Students in IT who passed the CompTIA Net+ took an alternate, additional class
         if (programArea.equals("2") || programArea.equals("3")){
             output.netPlusPrompt();
             String netPlusResponse = keyboard.next();
             if (netPlusResponse.equals("1")){
-                netPlusStatus = true;
+                Boolean netPlusStatus = true;
             } else {
-                netPlusStatus = false;
+                Boolean netPlusStatus = false;
             }
         }
-        loadProgramCourses();
+        loadProgramCourses(); // Adds program area courses to coursesTaken
 
-        output.additionalWTCCPrompt();
-        additionalWTCC = keyboard.next();
-        loadAdditionalWTCC();
+        output.additionalWTCCPrompt(); // Prompts for 5th period & summer classes
+        String additionalWTCC = keyboard.next();
+        loadAdditionalWTCC(); // Adds additional WTCC to coursesTaken
 
-        output.apExamsPrompt();
-        apExams = keyboard.next();
-        loadAPExams();
+        output.apExamsPrompt(); // Prompts for AP Exams
+        String apExams = keyboard.next();
+        loadAPExams(); // Adds APs to coursesTaken
 
-        output.universityPrompt();
-        university = keyboard.next();
-        user.setUniversity((Integer.parseInt(university)-1));
+        output.universityPrompt(); // Prompts for user's future university
+        String university = keyboard.next();
+        user.setUniversity((Integer.parseInt(university)-1)); // Assigns id based on position in UniversityData ArrayList
 
-        loadCreditReport();
+        loadCreditReport(); // Displays credit awarded for the user's work
     }
 
+
+    /**
+     * Adds courses to coursesTaken based on program area.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+    */
     private void loadProgramCourses() {
         switch(programArea) {
             case "1":
@@ -95,6 +98,13 @@ public class TransferController{
         }
     }
 
+    
+    /**
+     * Adds courses to coursesTaken based on 5th period & summer work.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+    */
     private void loadAdditionalWTCC(){
         for (int i = 0; i < additionalWTCC.length(); i++) {
             String j = String.valueOf(additionalWTCC.charAt(i));
@@ -118,11 +128,26 @@ public class TransferController{
         }
     }
 
+    /**
+     * Helper method to assign a score to WTCC courses taken.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+     * @param String courseName
+     * @return User's grade input
+    */
     private int getWTCCGrade(String courseName){
-        output.wtccGradePrompt(courseName);
+        output.wtccGradePrompt(courseName); // Calls prompt for grade
         return keyboard.nextInt();
     }
 
+
+    /**
+     * Adds courses to coursesTaken based on AP exams taken.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+    */
     private void loadAPExams(){
         for (int i = 0; i < apExams.length(); i += 2) {
             String j = apExams.substring(i, i + 2);
@@ -173,17 +198,36 @@ public class TransferController{
         }
     }
 
+    /**
+     * Helper method to assign a score to AP Exams taken.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+     * @param String examName
+     * @return User's score input
+    */
     private int getAPScore(String examName){
         output.apScorePrompt(examName);
         return keyboard.nextInt();
     }
 
+
+    /**
+     * Iterates through coursesTaken to display the final credit report.
+     *
+     * @author Biruk Yidnekachew
+     * @version 1.0
+    */
     private void loadCreditReport() {
+        // Iterates through coursesTaken
         for(Course c : user.getCoursesTaken()){
+            // If a given course has an equivalent at the university
             if(UniversityData.universityEquivalences.get(user.getUniversity()).containsKey(c.getCourseCode())){
+                // Iterates through list of possible equivalencies
                 for(TransferCourse tc : UniversityData.universityEquivalences.get(user.getUniversity()).get(c.getCourseCode())){
+                    // If user score is at or better than required score
                     if(c.getScore() >= tc.getScoreRequired()){
-                        //output.displayTransferEquivalence(tc.getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(tc.getCourseCode()).getCourseCode(), UniversityData.universityEquivalences.get(user.getUniversity()).get(tc.getCourseCode()).getCourseName(), UniversityData.universityEquivalences.get(user.getUniversity()).get(tc.getCourseCode()).getCreditHrs());
+                        // Adds a line to the final credit report
                         output.displayTransferEquivalence(c.getCourseName(), tc.getCourseCode(), tc.getCourseName(), tc.getCreditHrs());
                     }
                 }

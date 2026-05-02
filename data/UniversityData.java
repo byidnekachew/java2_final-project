@@ -1,16 +1,30 @@
 package data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import model.TransferCourse;
 
+// Dependencies imported
+import java.util.ArrayList; // For when a WECIB course has multiple equivalencies
+import java.util.HashMap; // Holds both WECIB course & transfer course
+import model.TransferCourse; // To create TransferCourse objects
+
+/**
+ * Hosts all data for which courses at WECIB transfer to which courses at a given university.
+ *
+ * @author Biruk Yidnekachew
+ * @version 1.0
+*/
 public class UniversityData{
+    /* Creates ArrayList to host HashMaps for each university. HashMaps have string for WECIB course 
+     * code and ArrayLists for each transfer equivalency */
     public static ArrayList<HashMap<String, ArrayList<TransferCourse>>> universityEquivalences = new ArrayList<>();
 
     static {
-        HashMap<String, ArrayList<TransferCourse>> johnsHopkins = new HashMap<>();
-        universityEquivalences.add(johnsHopkins);
+        // Johns Hopkins University equivalencies 
+        HashMap<String, ArrayList<TransferCourse>> johnsHopkins = new HashMap<>(); // Creates HashMap
+        // Adds course equivalencies to HashMap
 
+        universityEquivalences.add(johnsHopkins); // Adds university to ArrayList
+
+        // NC A&T
         HashMap<String, ArrayList<TransferCourse>> ncAT = new HashMap<>();
         ncAT.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIOL 101", "Concepts in Biology", 4, 3)); }});
         ncAT.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIOL 102", "Concepts of Biology II", 4, 3)); }});
@@ -49,6 +63,7 @@ public class UniversityData{
         ncAT.put("AP-WH", new ArrayList<>() {{ add(new TransferCourse("HIST 206", "The World to 1400", 3, 3)); add(new TransferCourse("HIST 207", "The World Since 1400", 3, 3)); }});
         universityEquivalences.add(ncAT);
 
+        // NC State
         HashMap<String, ArrayList<TransferCourse>> ncState = new HashMap<>();
         ncState.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIO 183", "Introductory Biology: Cellular and Molecular Biology", 4, 3)); }});
         ncState.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIO 181", "Introductory Biology: Ecology, Evolution, and Biodiversity", 4, 3)); }});
@@ -74,12 +89,15 @@ public class UniversityData{
         ncState.put("AP-WH", new ArrayList<>() {{ add(new TransferCourse("HI 233", "The World Since 1750", 3, 3)); add(new TransferCourse("HI 232", "The World from 1200 to 1750", 3, 5)); }});
         universityEquivalences.add(ncState);
 
+        // Northeastern
         HashMap<String, ArrayList<TransferCourse>> northeastern = new HashMap<>();
         universityEquivalences.add(northeastern);
 
+        // Penn State
         HashMap<String, ArrayList<TransferCourse>> pennState = new HashMap<>();
         universityEquivalences.add(pennState);
 
+        // UNC Chapel Hill
         HashMap<String, ArrayList<TransferCourse>> uncChapelHill = new HashMap<>();
         uncChapelHill.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIOL 101", "Principles of Biology", 3, 3)); add(new TransferCourse("BIOL 101L", "Introductory Biology Laboratory", 1, 3)); add(new TransferCourse("BIOL 103", "How Cells Function", 3, 3));}});
         uncChapelHill.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIOL 104", "Biodiversity", 3, 3)); add(new TransferCourse("BIOL 190L", "Laboratory in Special Topics in Biology at an Introductory Level", 1, 3));  }});
@@ -109,12 +127,15 @@ public class UniversityData{
         uncChapelHill.put("AP-Precalc", new ArrayList<>() {{ add(new TransferCourse("MATH 110P", "Precalculus Mathematics", 0, 3)); }});
         universityEquivalences.add(uncChapelHill);
 
+        // UNC Charlotte
         HashMap<String, ArrayList<TransferCourse>> uncCharlotte = new HashMap<>();
         universityEquivalences.add(uncCharlotte);
 
+        // UNC Greensboro
         HashMap<String, ArrayList<TransferCourse>> uncGreensboro = new HashMap<>();
         universityEquivalences.add(uncGreensboro);
 
+        // Virginia Tech
         HashMap<String, ArrayList<TransferCourse>> virginiaTech = new HashMap<>();
         universityEquivalences.add(virginiaTech);
     }
