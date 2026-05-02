@@ -21,9 +21,9 @@ Method 2: Locally
 4. Run the Main.java file
 
 ### MVC Structure
-Model: Contains a Student, Course, and TransferCourse class
-View: The text that prompts user for choices
-Controller: All business logic employed
+Model: Contains a Student, Course, and TransferCourse class   
+View: The text that prompts user for choices   
+Controller: All business logic employed   
 
 ### Design Patterns
 
