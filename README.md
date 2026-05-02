@@ -12,8 +12,9 @@ Method 1: Github Codespaces
 1. Fork this repository
 2. Start a GitHub codespace for this project
 3. Run the following commands:
-`javac model/Course.java model/Student.java model/TransferCourse.java data/UniversityData.java view/ConsoleView.java controller/TransferController.java Main.java`
-`java Main`
+`javac model/Course.java model/Student.java model/TransferCourse.java data/UniversityData.java view/ConsoleView.java controller/TransferController.java Main.java`   
+`java Main`   
+
 Method 2: Locally
 1. Download this repository as a zip file
 2. Unzip the files
