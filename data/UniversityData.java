@@ -50,6 +50,28 @@ public class UniversityData{
         universityEquivalences.add(ncAT);
 
         HashMap<String, ArrayList<TransferCourse>> ncState = new HashMap<>();
+        ncState.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIO 183", "Introductory Biology: Cellular and Molecular Biology", 4, 3)); }});
+        ncState.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIO 181", "Introductory Biology: Ecology, Evolution, and Biodiversity", 4, 3)); }});
+        ncState.put("CSC-120", new ArrayList<>() {{ add(new TransferCourse("CSC 1XX", "Introduction to Computing and Data Science", 3, 3)); }});
+        ncState.put("CSC-151", new ArrayList<>() {{ add(new TransferCourse("CSC 1XX", "Introduction to Computing and Data Science", 3, 3)); }});
+        ncState.put("COM-120", new ArrayList<>() {{ add(new TransferCourse("COM 112", "Interpersonal Communication", 3, 3)); }});
+        ncState.put("ENG-111", new ArrayList<>() {{ add(new TransferCourse("ENG 101", "Academic Writing and Research", 3, 3)); }});
+        ncState.put("HUM-110", new ArrayList<>() {{ add(new TransferCourse("ANT 261", "Technology in Society and Culture", 3, 3)); }});
+        ncState.put("PSY-150", new ArrayList<>() {{ add(new TransferCourse("PSY 200", "Introduction to Psychology", 3, 3)); }});
+        ncState.put("AP-Bio", new ArrayList<>() {{ add(new TransferCourse("BIO 105", "Biology in the Modern World", 3, 3)); add(new TransferCourse("BIO 106", "Biology in the Modern World Laboratory", 1, 3)); }});
+        ncState.put("AP-Calc AB", new ArrayList<>() {{ add(new TransferCourse("MA 121", "Elements of Calculus", 3, 3)); add(new TransferCourse("MA 141", "Calculus I", 4, 4)); }});
+        ncState.put("AP-Calc BC", new ArrayList<>() {{ add(new TransferCourse("MA 141", "Calculus I", 4, 3)); add(new TransferCourse("MA 241", "Calculus II", 4, 4)); }});
+        ncState.put("AP-CSA", new ArrayList<>() {{ add(new TransferCourse("CSC 116", "Introduction to Computing - Java", 3, 4)); add(new TransferCourse("CSC 110", "Computer Science Principles - The Beauty and Joy of Computing", 3, 3)); }});
+        ncState.put("AP-CSP", new ArrayList<>() {{ add(new TransferCourse("CSC 110", "Computer Science Principles - The Beauty and Joy of Computing", 3, 3)); }});
+        ncState.put("AP-Lang", new ArrayList<>() {{ add(new TransferCourse("ENG 100", "Reading and Writing Rhetorically", 4, 3)); add(new TransferCourse("ENG 101", "Academic Writing and Research", 4, 5)); }});
+        ncState.put("AP-Lit", new ArrayList<>() {{ add(new TransferCourse("ENG 208", "Studies in Fiction", 3, 3)); }});
+        ncState.put("AP-HUG", new ArrayList<>() {{ add(new TransferCourse("SS 2XX", "Social Sciences 200-level GEP", 3, 3)); }});
+        ncState.put("AP-Phys", new ArrayList<>() {{ add(new TransferCourse("PY 131", "Conceptual Physics", 4, 3)); add(new TransferCourse("PY 211", "College Physics I", 4, 4)); }});
+        ncState.put("AP-Precalc", new ArrayList<>() {{ add(new TransferCourse("MA 111", "Precalculus Algebra and Trigonometry", 3, 3)); }});
+        ncState.put("AP-Stats", new ArrayList<>() {{ add(new TransferCourse("ST 311", "Introduction to Statistics", 3, 3)); }});
+        ncState.put("AP-Gov", new ArrayList<>() {{ add(new TransferCourse("GENR 2XX", "General Elective", 3, 3)); add(new TransferCourse("PS 201", "American Politics and Government", 3, 4)); }});
+        ncState.put("AP-USH", new ArrayList<>() {{ add(new TransferCourse("HI 253", "Early U.S. History", 3, 3)); add(new TransferCourse("HI 254", "Modern U.S. History", 3, 5)); }});
+        ncState.put("AP-WH", new ArrayList<>() {{ add(new TransferCourse("HI 233", "The World Since 1750", 3, 3)); add(new TransferCourse("HI 232", "The World from 1200 to 1750", 3, 5)); }});
         universityEquivalences.add(ncState);
 
         HashMap<String, ArrayList<TransferCourse>> northeastern = new HashMap<>();
@@ -59,6 +81,32 @@ public class UniversityData{
         universityEquivalences.add(pennState);
 
         HashMap<String, ArrayList<TransferCourse>> uncChapelHill = new HashMap<>();
+        uncChapelHill.put("BIO-111", new ArrayList<>() {{ add(new TransferCourse("BIOL 101", "Principles of Biology", 3, 3)); add(new TransferCourse("BIOL 101L", "Introductory Biology Laboratory", 1, 3)); add(new TransferCourse("BIOL 103", "How Cells Function", 3, 3));}});
+        uncChapelHill.put("BIO-112", new ArrayList<>() {{ add(new TransferCourse("BIOL 104", "Biodiversity", 3, 3)); add(new TransferCourse("BIOL 190L", "Laboratory in Special Topics in Biology at an Introductory Level", 1, 3));  }});
+        uncChapelHill.put("BIO-250", new ArrayList<>() {{ add(new TransferCourse("BIOL 202", "Molecular Biology and Genetics", 4, 3)); add(new TransferCourse("BIOL 220", "Molecular Genetics", 3, 3)); }});
+        uncChapelHill.put("CTI-110", new ArrayList<>() {{ add(new TransferCourse("COMP 126", "Practical Web Design and Development for Everyone", 3, 3)); }});
+        uncChapelHill.put("CTS-115", new ArrayList<>() {{ add(new TransferCourse("COMP XXX", "General Elective", 3, 3)); }});  
+        uncChapelHill.put("WEB-115", new ArrayList<>() {{ add(new TransferCourse("INLS 572", "Web Development I", 3, 3)); }});
+        uncChapelHill.put("CSC-120", new ArrayList<>() {{ add(new TransferCourse("COMP XXX", "General Elective", 3, 3)); }});  
+        uncChapelHill.put("CSC-151", new ArrayList<>() {{ add(new TransferCourse("COMP 110", "Introduction to Programming and Data Science", 3, 3)); }});
+        uncChapelHill.put("CSC-251", new ArrayList<>() {{ add(new TransferCourse("COMP 110", "Introduction to Programming and Data Science", 3, 3)); }});
+        uncChapelHill.put("COM-120", new ArrayList<>() {{ add(new TransferCourse("COMM 120", "Introduction to Interpersonal and Organizational Communication", 3, 3)); }});
+        uncChapelHill.put("ENG-111", new ArrayList<>() {{ add(new TransferCourse("ENGL 100", "Basic Writing", 3, 3)); }});
+        uncChapelHill.put("HUM-110", new ArrayList<>() {{ add(new TransferCourse("GENR XXX", "General Elective", 3, 3)); }});  
+        uncChapelHill.put("PSY-150", new ArrayList<>() {{ add(new TransferCourse("PSYC 101", "General Psychology", 3, 3)); }});  
+        uncChapelHill.put("AP-Bio", new ArrayList<>() {{ add(new TransferCourse("BIOL 101", "Principles of Biology", 3, 3)); add(new TransferCourse("BIOL 101L", "Introductory Biology Laboratory", 1, 3)); }});
+        uncChapelHill.put("AP-Calc AB", new ArrayList<>() {{ add(new TransferCourse("MATH 231", "Calculus of Functions of One Variable I", 4, 3)); }});
+        uncChapelHill.put("AP-Calc BC", new ArrayList<>() {{ add(new TransferCourse("MATH 231", "Calculus of Functions of One Variable I", 4, 3)); add(new TransferCourse("MATH 232", "Calculus of Functions of One Variable II", 4, 3)); }});
+        uncChapelHill.put("AP-CSA", new ArrayList<>() {{ add(new TransferCourse("COMP XXX", "General Elective", 3, 3)); add(new TransferCourse("COMP 110", "Introduction to Programming and Data Science", 3, 5)); }});
+        uncChapelHill.put("AP-Lang", new ArrayList<>() {{ add(new TransferCourse("ENGL XXX", "General Elective", 3, 3)); }});
+        uncChapelHill.put("AP-Lit", new ArrayList<>() {{ add(new TransferCourse("ENGL XXX", "General Elective", 3, 3)); add(new TransferCourse("ENGL 190", "Exploring Topics in English Studies", 3, 5)); }});
+        uncChapelHill.put("AP-HUG", new ArrayList<>() {{ add(new TransferCourse("GEOG 120", "World Regional Geography", 3, 3)); }});
+        uncChapelHill.put("AP-Phys", new ArrayList<>() {{ add(new TransferCourse("PHYS XXX", "General Elective", 3, 3)); add(new TransferCourse("PHYS 114", "General Physics I: For Students of the Life Sciences", 4, 4)); }});
+        uncChapelHill.put("AP-Stats", new ArrayList<>() {{ add(new TransferCourse("STOR 151", "Introduction to Data Analysis", 3, 3)); add(new TransferCourse("STOR 155", "Introduction to Data Models and Inference", 3, 4)); }});
+        uncChapelHill.put("AP-Gov", new ArrayList<>() {{ add(new TransferCourse("POLI XXX", "General Elective", 3, 3)); add(new TransferCourse("POLI 100", "American Democracy in Changing Times", 3, 4)); }});
+        uncChapelHill.put("AP-USH", new ArrayList<>() {{ add(new TransferCourse("HIST 102", "Introduction to Major Problems in U.S History", 3, 3)); }});
+        uncChapelHill.put("AP-WH", new ArrayList<>() {{ add(new TransferCourse("HIST 103", "Introduction to Major Problems in Modern World History", 3, 3)); }});
+        uncChapelHill.put("AP-Precalc", new ArrayList<>() {{ add(new TransferCourse("MATH 110P", "Precalculus Mathematics", 0, 3)); }});
         universityEquivalences.add(uncChapelHill);
 
         HashMap<String, ArrayList<TransferCourse>> uncCharlotte = new HashMap<>();
