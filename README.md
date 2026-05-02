@@ -7,7 +7,6 @@
 The WECIB College Transfer Tool is a program to help WECIB students find what courses transfer to the 4-year institution they plan to attend after graduation. It houses all the information in one place so that students don't have to spend extensive amounts of time searching the web for this information.   
 
 ### How to run
-There are two primary ways to run this program.   
 Method 1: Github Codespaces
 1. Fork this repository
 2. Start a GitHub codespace for this project
