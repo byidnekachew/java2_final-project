@@ -14,33 +14,40 @@ public class TransferController{
     private Student user = new Student(); // Creates student object for user run
     private ConsoleView output = new ConsoleView(); // Creates view object to output to users
     
+    // Declares class variables
+    String programArea; // User's WECIB program area of study
+    Boolean netPlusStatus; // Whether or not a user has passed CompTIA Network+ exam
+    String additionalWTCC; // User's input on additional WTCC classes
+    String apExams; // User's input on AP Exams
+    String university; // User's input on 4-year institution
+
     public void run(){
         output.welcome(); // Displays welcome message
 
         output.programAreaPrompt(); // Prompts for program area
-        String programArea = keyboard.next(); // Collects program area data
+        programArea = keyboard.next(); // Collects program area data
         // Students in IT who passed the CompTIA Net+ took an alternate, additional class
         if (programArea.equals("2") || programArea.equals("3")){
             output.netPlusPrompt();
             String netPlusResponse = keyboard.next();
             if (netPlusResponse.equals("1")){
-                Boolean netPlusStatus = true;
+                netPlusStatus = true;
             } else {
-                Boolean netPlusStatus = false;
+                netPlusStatus = false;
             }
         }
         loadProgramCourses(); // Adds program area courses to coursesTaken
 
         output.additionalWTCCPrompt(); // Prompts for 5th period & summer classes
-        String additionalWTCC = keyboard.next();
+        additionalWTCC = keyboard.next();
         loadAdditionalWTCC(); // Adds additional WTCC to coursesTaken
 
         output.apExamsPrompt(); // Prompts for AP Exams
-        String apExams = keyboard.next();
+        apExams = keyboard.next();
         loadAPExams(); // Adds APs to coursesTaken
 
         output.universityPrompt(); // Prompts for user's future university
-        String university = keyboard.next();
+        university = keyboard.next();
         user.setUniversity((Integer.parseInt(university)-1)); // Assigns id based on position in UniversityData ArrayList
 
         loadCreditReport(); // Displays credit awarded for the user's work
