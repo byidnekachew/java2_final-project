@@ -10,7 +10,7 @@ The WECIB College Transfer Tool is a program to help WECIB students find what co
 **Method 1:** Github Codespaces
 1. Fork this repository
 2. Start a GitHub codespace for this project
-3. Run the following commands:
+3. Run the following commands:   
 `javac model/Course.java model/Student.java model/TransferCourse.java data/UniversityData.java view/ConsoleView.java controller/TransferController.java Main.java`   
 `java Main`   
 
