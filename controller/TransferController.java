@@ -17,6 +17,7 @@ public class TransferController{
     // Declares class variables
     String programArea; // User's WECIB program area of study
     Boolean netPlusStatus; // Whether or not a user has passed CompTIA Network+ exam
+    String netPlusResponse; // User's input on Net+
     String additionalWTCC; // User's input on additional WTCC classes
     String apExams; // User's input on AP Exams
     String university; // User's input on 4-year institution
@@ -25,29 +26,98 @@ public class TransferController{
         output.welcome(); // Displays welcome message
 
         output.programAreaPrompt(); // Prompts for program area
-        programArea = keyboard.next(); // Collects program area data
+        
+        while(true){
+            programArea = keyboard.next(); // Collects program area data
+            if (programArea.equals("1") || programArea.equals("2") || programArea.equals("3")){
+                break;
+            } else{
+                output.errMessage("numbers 1, 2, or 3");
+            }
+        }
         // Students in IT who passed the CompTIA Net+ took an alternate, additional class
         if (programArea.equals("2") || programArea.equals("3")){
             output.netPlusPrompt();
-            String netPlusResponse = keyboard.next();
-            if (netPlusResponse.equals("1")){
-                netPlusStatus = true;
-            } else {
-                netPlusStatus = false;
+            while(true){
+                netPlusResponse = keyboard.next();
+                if (netPlusResponse.equals("1") || netPlusResponse.equals("2")){
+                    break;
+                } else{
+                    output.errMessage("numbers 1 or 2");
+                }
             }
+        } else{
+            netPlusResponse = "2";
+        }
+        if (netPlusResponse.equals("1")){
+            netPlusStatus = true;
+        } else {
+            netPlusStatus = false;
         }
         loadProgramCourses(); // Adds program area courses to coursesTaken
 
         output.additionalWTCCPrompt(); // Prompts for 5th period & summer classes
-        additionalWTCC = keyboard.next();
+        while(true){
+            additionalWTCC = keyboard.next();
+            boolean valid = true;
+            for (int i = 0; i < additionalWTCC.length(); i++){
+                if(String.valueOf(additionalWTCC.charAt(i)).equals("0") ||
+                   String.valueOf(additionalWTCC.charAt(i)).equals("1") ||
+                   String.valueOf(additionalWTCC.charAt(i)).equals("2") || 
+                   String.valueOf(additionalWTCC.charAt(i)).equals("3") || 
+                   String.valueOf(additionalWTCC.charAt(i)).equals("4") || 
+                   String.valueOf(additionalWTCC.charAt(i)).equals("5")){
+                } else{
+                    output.errMessage("serieses of numbers 1 through 5");
+                    valid = false;
+                }
+            }
+            if (valid){
+                break;
+            }
+        }
         loadAdditionalWTCC(); // Adds additional WTCC to coursesTaken
 
         output.apExamsPrompt(); // Prompts for AP Exams
-        apExams = keyboard.next();
+        while(true){
+            apExams = keyboard.next();
+            boolean valid = true;
+            for (int i = 0; i < apExams.length(); i += 2){
+                if(apExams.substring(i, i + 2).equals("00") || 
+                apExams.substring(i, i + 2).equals("01") || 
+                apExams.substring(i, i + 2).equals("02") ||
+                apExams.substring(i, i + 2).equals("03") || 
+                apExams.substring(i, i + 2).equals("04") || 
+                apExams.substring(i, i + 2).equals("05") || 
+                apExams.substring(i, i + 2).equals("06") || 
+                apExams.substring(i, i + 2).equals("07") || 
+                apExams.substring(i, i + 2).equals("08") || 
+                apExams.substring(i, i + 2).equals("09") || 
+                apExams.substring(i, i + 2).equals("10") || 
+                apExams.substring(i, i + 2).equals("11") || 
+                apExams.substring(i, i + 2).equals("12") || 
+                apExams.substring(i, i + 2).equals("13") || 
+                apExams.substring(i, i + 2).equals("14")){
+                } else{
+                    output.errMessage("serieses of numbers 01 through 14");
+                    valid = false;
+                }
+            }
+            if (valid){
+                break;
+            }
+        }
         loadAPExams(); // Adds APs to coursesTaken
 
         output.universityPrompt(); // Prompts for user's future university
-        university = keyboard.next();
+        while(true){
+            university = keyboard.next();
+            if (university.equals("1") || university.equals("2") || university.equals("3") || university.equals("4") || university.equals("5") || university.equals("6") || university.equals("7") || university.equals("8") || university.equals("9")){
+                break;
+            } else{
+                output.errMessage("numbers 1 through 9");
+            }
+        }
         user.setUniversity((Integer.parseInt(university)-1)); // Assigns id based on position in UniversityData ArrayList
 
         loadCreditReport(); // Displays credit awarded for the user's work
@@ -145,7 +215,18 @@ public class TransferController{
     */
     private int getWTCCGrade(String courseName){
         output.wtccGradePrompt(courseName); // Calls prompt for grade
-        return keyboard.nextInt();
+        while(true){
+            String wtccGrade = keyboard.next();
+            if(wtccGrade.equals("1") ||
+                wtccGrade.equals("2") || 
+                wtccGrade.equals("3") || 
+                wtccGrade.equals("4") || 
+                wtccGrade.equals("5")){
+                 return Integer.parseInt(wtccGrade);
+            } else{
+                output.errMessage("numbers 1 through 5");
+            }
+        }
     }
 
 
@@ -215,7 +296,18 @@ public class TransferController{
     */
     private int getAPScore(String examName){
         output.apScorePrompt(examName);
-        return keyboard.nextInt();
+        while(true){
+            String examScore = keyboard.next();
+            if(examScore.equals("1") ||
+                examScore.equals("2") || 
+                examScore.equals("3") || 
+                examScore.equals("4") || 
+                examScore.equals("5")){
+                 return Integer.parseInt(examScore);
+            } else{
+                output.errMessage("numbers 1 through 5");
+            }
+        }
     }
 
 

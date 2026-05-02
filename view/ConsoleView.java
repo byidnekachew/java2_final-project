@@ -63,6 +63,7 @@ public class ConsoleView{
     public void additionalWTCCPrompt(){
         System.out.println(" ");
         System.out.println("Did you take any 5th Period or Summer Courses?");
+        System.out.println("00 - If you took none");
         System.out.println("1 - COM-120 Introduction to Interpersonal Communication");
         System.out.println("2 - CSC-120 Computing Fundamentals I");
         System.out.println("3 - ENG-111 Writing and Inquiry");
@@ -92,6 +93,7 @@ public class ConsoleView{
     public void apExamsPrompt(){
         System.out.println(" ");
         System.out.println("Which AP Exams did you take?");
+        System.out.println("00 - If you took none");
         System.out.println("01 - AP Biology");
         System.out.println("02 - AP Calculus AB");
         System.out.println("03 - AP Calculus BC");
