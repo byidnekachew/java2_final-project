@@ -12,6 +12,9 @@ import controller.TransferController;
 /*  javac model/Course.java model/Student.java model/TransferCourse.java data/UniversityData.java view/ConsoleView.java controller/TransferController.java Main.java
     clear
     java Main
+
+    curl -L https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-standalone/5.10.0/junit-jupiter-standalone-5.10.0.jar -o junit.jar
+    java
 */
 
 /**
